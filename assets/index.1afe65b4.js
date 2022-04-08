@@ -28103,7 +28103,7 @@ function instance$1($$self, $$props, $$invalidate) {
     navigator.geolocation.getCurrentPosition((position) => {
       toasts.add({
         type: "info",
-        description: `${position.coords.latitude} ${position.coords.longitude} ${position.coords.heading}`,
+        description: `${position.coords.latitude} ${position.coords.longitude} ${position.coords.accuracy}m ${position.coords.heading}`,
         placement: "bottom-center",
         duration: 0
       });
@@ -30686,4 +30686,4 @@ L$1.Icon.Default.prototype.options.imagePath = "/arl-map-tool/images/";
 new App({
   target: document.body
 });
-//# sourceMappingURL=index.0914fc9e.js.map
+//# sourceMappingURL=index.1afe65b4.js.map
