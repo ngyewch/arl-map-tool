@@ -26706,6 +26706,16 @@ class DmsCoordinates {
   }
 }
 DmsCoordinates.dmsRe = dmsRe;
+class DmsHelper {
+  static toString(dms) {
+    const dmsArray = dms.getDmsArray();
+    return `${dmsArray[0]}\xB0${dmsArray[1]}\u2032${dmsArray[2].toFixed(1)}\u2033 ${dmsArray[3]}`;
+  }
+  static toDmsString(latLng) {
+    const dmsCoords = new DmsCoordinates(latLng.lat, latLng.lng);
+    return `${DmsHelper.toString(dmsCoords.latitude)} ${DmsHelper.toString(dmsCoords.longitude)}`;
+  }
+}
 var Coords_svelte_svelte_type_style_lang = "";
 function create_if_block$3(ctx) {
   let t0;
@@ -26798,10 +26808,6 @@ function create_fragment$4(ctx) {
     }
   };
 }
-function toString(dms) {
-  const dmsArray = dms.getDmsArray();
-  return `${dmsArray[0]}\xB0${dmsArray[1]}\u2032${dmsArray[2].toFixed(1)}\u2033 ${dmsArray[3]}`;
-}
 function formatLatLng(lat, lng) {
   return { lat: lat.toFixed(6), lng: lng.toFixed(6) };
 }
@@ -26825,8 +26831,8 @@ function instance$3($$self, $$props, $$invalidate) {
   }
   function onMouseMove(e) {
     const formattedLatLng = formatLatLng(e.latlng.lat, e.latlng.lng);
-    const dmsCoords = new DmsCoordinates(e.latlng.lat, e.latlng.lng);
-    $$invalidate(2, coords = formattedLatLng.lat + ", " + formattedLatLng.lng + " / " + toString(dmsCoords.latitude) + " " + toString(dmsCoords.longitude));
+    new DmsCoordinates(e.latlng.lat, e.latlng.lng);
+    $$invalidate(2, coords = `${formattedLatLng.lat}, ${formattedLatLng.lng} / ${DmsHelper.toDmsString(e.latlng)}`);
   }
   function onContextMenu(e) {
     if (!e.originalEvent.shiftKey && !e.originalEvent.ctrlKey && !e.originalEvent.altKey) {
@@ -28101,13 +28107,13 @@ function instance$1($$self, $$props, $$invalidate) {
   }
   function showMyLocation() {
     navigator.geolocation.getCurrentPosition((position) => {
+      const latLng = L$1.latLng(position.coords.latitude, position.coords.longitude);
       toasts.add({
         type: "info",
-        description: `${position.coords.latitude} ${position.coords.longitude} ${position.coords.accuracy}m ${position.coords.heading}`,
+        description: `${position.coords.latitude} ${position.coords.longitude} / ${DmsHelper.toDmsString(latLng)} / ${position.coords.accuracy.toFixed(1)}m / ${position.coords.heading}`,
         placement: "bottom-center",
         duration: 0
       });
-      const latLng = L$1.latLng(position.coords.latitude, position.coords.longitude);
       const headingInRadians = position.coords.heading !== null ? position.coords.heading * Math.PI / 180 : null;
       if (myLocationTrackSymbol) {
         myLocationTrackSymbol.setLatLng(latLng);
@@ -30686,4 +30692,4 @@ L$1.Icon.Default.prototype.options.imagePath = "/arl-map-tool/images/";
 new App({
   target: document.body
 });
-//# sourceMappingURL=index.1afe65b4.js.map
+//# sourceMappingURL=index.7f880f9f.js.map
