@@ -27341,7 +27341,7 @@ function create_if_block_1(ctx) {
     },
     p(ctx2, dirty) {
       const window_changes = {};
-      if (dirty[0] & 16384 | dirty[1] & 2097152) {
+      if (dirty[0] & 16384 | dirty[1] & 4194304) {
         window_changes.$$scope = { dirty, ctx: ctx2 };
       }
       window2.$set(window_changes);
@@ -27462,7 +27462,7 @@ function create_footer_slot(ctx) {
     },
     p(ctx2, dirty) {
       const button_changes = {};
-      if (dirty[1] & 2097152) {
+      if (dirty[1] & 4194304) {
         button_changes.$$scope = { dirty, ctx: ctx2 };
       }
       button.$set(button_changes);
@@ -27509,7 +27509,7 @@ function create_if_block$1(ctx) {
     },
     p(ctx2, dirty) {
       const window_changes = {};
-      if (dirty[0] & 32768 | dirty[1] & 2097152) {
+      if (dirty[0] & 32768 | dirty[1] & 4194304) {
         window_changes.$$scope = { dirty, ctx: ctx2 };
       }
       window2.$set(window_changes);
@@ -27937,6 +27937,7 @@ function instance$1($$self, $$props, $$invalidate) {
   let origin = null;
   let geojsonText = null;
   let localCoordsText = null;
+  let myLocationTrackSymbol = null;
   onMount(() => {
     initMap();
     originWritable.subscribe((value) => {
@@ -28106,11 +28107,29 @@ function instance$1($$self, $$props, $$invalidate) {
         placement: "bottom-center",
         duration: 0
       });
+      const latLng = L$1.latLng(position.coords.latitude, position.coords.longitude);
+      const headingInRadians = position.coords.heading !== null ? position.coords.heading * Math.PI / 180 : null;
+      if (myLocationTrackSymbol) {
+        myLocationTrackSymbol.setLatLng(latLng);
+        myLocationTrackSymbol.setHeading(headingInRadians);
+      } else {
+        myLocationTrackSymbol = L$1.trackSymbol(latLng, {
+          fill: true,
+          fillColor: "#0000ff",
+          fillOpacity: 1,
+          stroke: true,
+          color: "#000000",
+          opacity: 1,
+          weight: 1,
+          heading: headingInRadians
+        });
+        myLocationTrackSymbol.addTo(map);
+      }
       console.log(position);
     }, (error) => {
       toasts.add({
         type: "error",
-        description: "Could get location.",
+        description: "Could not get location: " + error,
         placement: "bottom-center",
         duration: 5e3
       });
@@ -30667,4 +30686,4 @@ L$1.Icon.Default.prototype.options.imagePath = "/arl-map-tool/images/";
 new App({
   target: document.body
 });
-//# sourceMappingURL=index.ca05e746.js.map
+//# sourceMappingURL=index.88e4853c.js.map
