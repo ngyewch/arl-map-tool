@@ -28134,7 +28134,7 @@ function instance$1($$self, $$props, $$invalidate) {
         duration: 5e3
       });
       console.log(error);
-    });
+    }, { enableHighAccuracy: true });
   }
   function div0_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
@@ -30686,4 +30686,4 @@ L$1.Icon.Default.prototype.options.imagePath = "/arl-map-tool/images/";
 new App({
   target: document.body
 });
-//# sourceMappingURL=index.88e4853c.js.map
+//# sourceMappingURL=index.0914fc9e.js.map
