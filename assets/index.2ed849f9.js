@@ -30368,8 +30368,8 @@ var leafletRuler = "";
 var bare = "";
 var global$1 = "";
 window.type = true;
-L$1.Icon.Default.prototype.options.imagePath = "/images/";
+L$1.Icon.Default.prototype.options.imagePath = "/arl-map-tool/images/";
 new App({
   target: document.body
 });
-//# sourceMappingURL=index.cd1ff07f.js.map
+//# sourceMappingURL=index.2ed849f9.js.map
