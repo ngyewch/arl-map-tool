@@ -27327,7 +27327,7 @@ function create_if_block_1(ctx) {
       $$scope: { ctx }
     }
   });
-  window2.$on("close", ctx[36]);
+  window2.$on("close", ctx[40]);
   return {
     c() {
       div = element("div");
@@ -27341,7 +27341,7 @@ function create_if_block_1(ctx) {
     },
     p(ctx2, dirty) {
       const window_changes = {};
-      if (dirty[0] & 8192 | dirty[1] & 131072) {
+      if (dirty[0] & 16384 | dirty[1] & 2097152) {
         window_changes.$$scope = { dirty, ctx: ctx2 };
       }
       window2.$set(window_changes);
@@ -27369,14 +27369,14 @@ function create_content_slot_1(ctx) {
   let updating_value;
   let current;
   function textfield_value_binding(value) {
-    ctx[35](value);
+    ctx[39](value);
   }
   let textfield_props = {
     textarea: true,
     style: "width: 100%; height: 100%;"
   };
-  if (ctx[13] !== void 0) {
-    textfield_props.value = ctx[13];
+  if (ctx[14] !== void 0) {
+    textfield_props.value = ctx[14];
   }
   textfield = new Textfield({ props: textfield_props });
   binding_callbacks.push(() => bind(textfield, "value", textfield_value_binding));
@@ -27395,9 +27395,9 @@ function create_content_slot_1(ctx) {
     },
     p(ctx2, dirty) {
       const textfield_changes = {};
-      if (!updating_value && dirty[0] & 8192) {
+      if (!updating_value && dirty[0] & 16384) {
         updating_value = true;
-        textfield_changes.value = ctx2[13];
+        textfield_changes.value = ctx2[14];
         add_flush_callback(() => updating_value = false);
       }
       textfield.$set(textfield_changes);
@@ -27445,7 +27445,7 @@ function create_footer_slot(ctx) {
       $$scope: { ctx }
     }
   });
-  button.$on("click", ctx[34]);
+  button.$on("click", ctx[38]);
   return {
     c() {
       div = element("div");
@@ -27462,7 +27462,7 @@ function create_footer_slot(ctx) {
     },
     p(ctx2, dirty) {
       const button_changes = {};
-      if (dirty[1] & 131072) {
+      if (dirty[1] & 2097152) {
         button_changes.$$scope = { dirty, ctx: ctx2 };
       }
       button.$set(button_changes);
@@ -27495,7 +27495,7 @@ function create_if_block$1(ctx) {
       $$scope: { ctx }
     }
   });
-  window2.$on("close", ctx[38]);
+  window2.$on("close", ctx[42]);
   return {
     c() {
       div = element("div");
@@ -27509,7 +27509,7 @@ function create_if_block$1(ctx) {
     },
     p(ctx2, dirty) {
       const window_changes = {};
-      if (dirty[0] & 16384 | dirty[1] & 131072) {
+      if (dirty[0] & 32768 | dirty[1] & 2097152) {
         window_changes.$$scope = { dirty, ctx: ctx2 };
       }
       window2.$set(window_changes);
@@ -27537,14 +27537,14 @@ function create_content_slot(ctx) {
   let updating_value;
   let current;
   function textfield_value_binding_1(value) {
-    ctx[37](value);
+    ctx[41](value);
   }
   let textfield_props = {
     textarea: true,
     style: "width: 100%; height: 100%;"
   };
-  if (ctx[14] !== void 0) {
-    textfield_props.value = ctx[14];
+  if (ctx[15] !== void 0) {
+    textfield_props.value = ctx[15];
   }
   textfield = new Textfield({ props: textfield_props });
   binding_callbacks.push(() => bind(textfield, "value", textfield_value_binding_1));
@@ -27563,9 +27563,9 @@ function create_content_slot(ctx) {
     },
     p(ctx2, dirty) {
       const textfield_changes = {};
-      if (!updating_value && dirty[0] & 16384) {
+      if (!updating_value && dirty[0] & 32768) {
         updating_value = true;
-        textfield_changes.value = ctx2[14];
+        textfield_changes.value = ctx2[15];
         add_flush_callback(() => updating_value = false);
       }
       textfield.$set(textfield_changes);
@@ -27604,18 +27604,21 @@ function create_fragment$2(ctx) {
   let mapbutton3;
   let updating_node_3;
   let t4;
-  let coords;
+  let mapbutton4;
   let updating_node_4;
   let t5;
-  let localcoords;
+  let coords;
   let updating_node_5;
   let t6;
+  let localcoords;
+  let updating_node_6;
   let t7;
   let t8;
+  let t9;
   let setorigindialog;
   let current;
   function mapbutton0_node_binding(value) {
-    ctx[22](value);
+    ctx[24](value);
   }
   let mapbutton0_props = {
     icon: "crop_free",
@@ -27626,9 +27629,9 @@ function create_fragment$2(ctx) {
   }
   mapbutton0 = new MapButton({ props: mapbutton0_props });
   binding_callbacks.push(() => bind(mapbutton0, "node", mapbutton0_node_binding));
-  mapbutton0.$on("click", ctx[23]);
+  mapbutton0.$on("click", ctx[25]);
   function mapbutton1_node_binding(value) {
-    ctx[24](value);
+    ctx[26](value);
   }
   let mapbutton1_props = { icon: "adjust", tooltip: "Set origin" };
   if (ctx[2] !== void 0) {
@@ -27636,9 +27639,9 @@ function create_fragment$2(ctx) {
   }
   mapbutton1 = new MapButton({ props: mapbutton1_props });
   binding_callbacks.push(() => bind(mapbutton1, "node", mapbutton1_node_binding));
-  mapbutton1.$on("click", ctx[25]);
+  mapbutton1.$on("click", ctx[27]);
   function mapbutton2_node_binding(value) {
-    ctx[26](value);
+    ctx[28](value);
   }
   let mapbutton2_props = { icon: "code", tooltip: "GeoJSON" };
   if (ctx[7] !== void 0) {
@@ -27646,9 +27649,9 @@ function create_fragment$2(ctx) {
   }
   mapbutton2 = new MapButton({ props: mapbutton2_props });
   binding_callbacks.push(() => bind(mapbutton2, "node", mapbutton2_node_binding));
-  mapbutton2.$on("click", ctx[27]);
+  mapbutton2.$on("click", ctx[29]);
   function mapbutton3_node_binding(value) {
-    ctx[28](value);
+    ctx[30](value);
   }
   let mapbutton3_props = {
     icon: "output",
@@ -27659,33 +27662,46 @@ function create_fragment$2(ctx) {
   }
   mapbutton3 = new MapButton({ props: mapbutton3_props });
   binding_callbacks.push(() => bind(mapbutton3, "node", mapbutton3_node_binding));
-  mapbutton3.$on("click", ctx[29]);
+  mapbutton3.$on("click", ctx[31]);
+  function mapbutton4_node_binding(value) {
+    ctx[32](value);
+  }
+  let mapbutton4_props = {
+    icon: "my_location",
+    tooltip: "My location"
+  };
+  if (ctx[9] !== void 0) {
+    mapbutton4_props.node = ctx[9];
+  }
+  mapbutton4 = new MapButton({ props: mapbutton4_props });
+  binding_callbacks.push(() => bind(mapbutton4, "node", mapbutton4_node_binding));
+  mapbutton4.$on("click", ctx[33]);
   function coords_node_binding(value) {
-    ctx[31](value);
+    ctx[35](value);
   }
   let coords_props = {};
   if (ctx[3] !== void 0) {
     coords_props.node = ctx[3];
   }
   coords = new Coords({ props: coords_props });
-  ctx[30](coords);
+  ctx[34](coords);
   binding_callbacks.push(() => bind(coords, "node", coords_node_binding));
   function localcoords_node_binding(value) {
-    ctx[33](value);
+    ctx[37](value);
   }
-  let localcoords_props = { origin: ctx[12] };
+  let localcoords_props = { origin: ctx[13] };
   if (ctx[5] !== void 0) {
     localcoords_props.node = ctx[5];
   }
   localcoords = new LocalCoords({ props: localcoords_props });
-  ctx[32](localcoords);
+  ctx[36](localcoords);
   binding_callbacks.push(() => bind(localcoords, "node", localcoords_node_binding));
-  let if_block0 = ctx[9] && create_if_block_1(ctx);
-  let if_block1 = ctx[10] && create_if_block$1(ctx);
+  let if_block0 = ctx[10] && create_if_block_1(ctx);
+  let if_block1 = ctx[11] && create_if_block$1(ctx);
   let setorigindialog_props = {};
   setorigindialog = new SetOriginDialog({ props: setorigindialog_props });
-  ctx[39](setorigindialog);
-  setorigindialog.$on("set", ctx[40]);
+  ctx[43](setorigindialog);
+  setorigindialog.$on("set", ctx[44]);
   return {
     c() {
       div1 = element("div");
@@ -27700,16 +27716,18 @@ function create_fragment$2(ctx) {
       t3 = space();
       create_component(mapbutton3.$$.fragment);
       t4 = space();
-      create_component(coords.$$.fragment);
+      create_component(mapbutton4.$$.fragment);
       t5 = space();
-      create_component(localcoords.$$.fragment);
+      create_component(coords.$$.fragment);
       t6 = space();
+      create_component(localcoords.$$.fragment);
+      t7 = space();
       if (if_block0)
         if_block0.c();
-      t7 = space();
+      t8 = space();
       if (if_block1)
         if_block1.c();
-      t8 = space();
+      t9 = space();
       create_component(setorigindialog.$$.fragment);
       attr(div0, "class", "map-container svelte-1a5npx0");
       attr(div1, "class", "map-container svelte-1a5npx0");
@@ -27719,7 +27737,7 @@ function create_fragment$2(ctx) {
     m(target, anchor) {
       insert(target, div1, anchor);
       append(div1, div0);
-      ctx[21](div0);
+      ctx[23](div0);
       insert(target, t0, anchor);
       insert(target, div2, anchor);
       mount_component(mapbutton0, div2, null);
@@ -27730,16 +27748,18 @@ function create_fragment$2(ctx) {
       append(div2, t3);
       mount_component(mapbutton3, div2, null);
       append(div2, t4);
-      mount_component(coords, div2, null);
+      mount_component(mapbutton4, div2, null);
       append(div2, t5);
+      mount_component(coords, div2, null);
+      append(div2, t6);
       mount_component(localcoords, div2, null);
-      insert(target, t6, anchor);
+      insert(target, t7, anchor);
       if (if_block0)
         if_block0.m(target, anchor);
-      insert(target, t7, anchor);
+      insert(target, t8, anchor);
       if (if_block1)
         if_block1.m(target, anchor);
-      insert(target, t8, anchor);
+      insert(target, t9, anchor);
       mount_component(setorigindialog, target, anchor);
       current = true;
     },
@@ -27772,33 +27792,40 @@ function create_fragment$2(ctx) {
         add_flush_callback(() => updating_node_3 = false);
       }
       mapbutton3.$set(mapbutton3_changes);
-      const coords_changes = {};
-      if (!updating_node_4 && dirty[0] & 8) {
+      const mapbutton4_changes = {};
+      if (!updating_node_4 && dirty[0] & 512) {
         updating_node_4 = true;
-        coords_changes.node = ctx2[3];
+        mapbutton4_changes.node = ctx2[9];
         add_flush_callback(() => updating_node_4 = false);
+      }
+      mapbutton4.$set(mapbutton4_changes);
+      const coords_changes = {};
+      if (!updating_node_5 && dirty[0] & 8) {
+        updating_node_5 = true;
+        coords_changes.node = ctx2[3];
+        add_flush_callback(() => updating_node_5 = false);
       }
       coords.$set(coords_changes);
       const localcoords_changes = {};
-      if (dirty[0] & 4096)
-        localcoords_changes.origin = ctx2[12];
-      if (!updating_node_5 && dirty[0] & 32) {
-        updating_node_5 = true;
+      if (dirty[0] & 8192)
+        localcoords_changes.origin = ctx2[13];
+      if (!updating_node_6 && dirty[0] & 32) {
+        updating_node_6 = true;
         localcoords_changes.node = ctx2[5];
-        add_flush_callback(() => updating_node_5 = false);
+        add_flush_callback(() => updating_node_6 = false);
       }
       localcoords.$set(localcoords_changes);
-      if (ctx2[9]) {
+      if (ctx2[10]) {
         if (if_block0) {
           if_block0.p(ctx2, dirty);
-          if (dirty[0] & 512) {
+          if (dirty[0] & 1024) {
             transition_in(if_block0, 1);
           }
         } else {
           if_block0 = create_if_block_1(ctx2);
           if_block0.c();
           transition_in(if_block0, 1);
-          if_block0.m(t7.parentNode, t7);
+          if_block0.m(t8.parentNode, t8);
         }
       } else if (if_block0) {
         group_outros();
@@ -27807,17 +27834,17 @@ function create_fragment$2(ctx) {
         });
         check_outros();
       }
-      if (ctx2[10]) {
+      if (ctx2[11]) {
         if (if_block1) {
           if_block1.p(ctx2, dirty);
-          if (dirty[0] & 1024) {
+          if (dirty[0] & 2048) {
             transition_in(if_block1, 1);
           }
         } else {
           if_block1 = create_if_block$1(ctx2);
           if_block1.c();
           transition_in(if_block1, 1);
-          if_block1.m(t8.parentNode, t8);
+          if_block1.m(t9.parentNode, t9);
         }
       } else if (if_block1) {
         group_outros();
@@ -27836,6 +27863,7 @@ function create_fragment$2(ctx) {
       transition_in(mapbutton1.$$.fragment, local);
       transition_in(mapbutton2.$$.fragment, local);
       transition_in(mapbutton3.$$.fragment, local);
+      transition_in(mapbutton4.$$.fragment, local);
       transition_in(coords.$$.fragment, local);
       transition_in(localcoords.$$.fragment, local);
       transition_in(if_block0);
@@ -27848,6 +27876,7 @@ function create_fragment$2(ctx) {
       transition_out(mapbutton1.$$.fragment, local);
       transition_out(mapbutton2.$$.fragment, local);
       transition_out(mapbutton3.$$.fragment, local);
+      transition_out(mapbutton4.$$.fragment, local);
       transition_out(coords.$$.fragment, local);
       transition_out(localcoords.$$.fragment, local);
       transition_out(if_block0);
@@ -27858,7 +27887,7 @@ function create_fragment$2(ctx) {
     d(detaching) {
       if (detaching)
         detach(div1);
-      ctx[21](null);
+      ctx[23](null);
       if (detaching)
         detach(t0);
       if (detaching)
@@ -27867,21 +27896,22 @@ function create_fragment$2(ctx) {
       destroy_component(mapbutton1);
       destroy_component(mapbutton2);
       destroy_component(mapbutton3);
-      ctx[30](null);
+      destroy_component(mapbutton4);
+      ctx[34](null);
       destroy_component(coords);
-      ctx[32](null);
+      ctx[36](null);
       destroy_component(localcoords);
       if (detaching)
-        detach(t6);
+        detach(t7);
       if (if_block0)
         if_block0.d(detaching);
       if (detaching)
-        detach(t7);
+        detach(t8);
       if (if_block1)
         if_block1.d(detaching);
       if (detaching)
-        detach(t8);
-      ctx[39](null);
+        detach(t9);
+      ctx[43](null);
       destroy_component(setorigindialog, detaching);
     }
   };
@@ -27896,6 +27926,7 @@ function instance$1($$self, $$props, $$invalidate) {
   let localCoordsComponent;
   let editGeoJSONButton;
   let exportToLocalCoordsButton;
+  let myLocationButton;
   let map;
   let mapControls = [];
   let mapLayerManager;
@@ -27910,7 +27941,7 @@ function instance$1($$self, $$props, $$invalidate) {
     initMap();
     originWritable.subscribe((value) => {
       mapLayerManager.setOrigin(value);
-      $$invalidate(12, origin = value);
+      $$invalidate(13, origin = value);
     });
     geoJsonWritable.subscribe((value) => {
       const geojsonLayer = L$1.geoJSON();
@@ -27970,6 +28001,7 @@ function instance$1($$self, $$props, $$invalidate) {
     addControl(LeafletHelper.newControl(setOriginButton, { position: "topright" }));
     addControl(LeafletHelper.newControl(editGeoJSONButton, { position: "topright" }));
     addControl(LeafletHelper.newControl(exportToLocalCoordsButton, { position: "topright" }));
+    addControl(LeafletHelper.newControl(myLocationButton, { position: "topright" }));
     addControl(LeafletHelper.newControl(coordsEl, { position: "bottomright" }, (map2) => {
       coordsComponent.onControlAdded(map2);
     }, (map2) => {
@@ -28021,19 +28053,19 @@ function instance$1($$self, $$props, $$invalidate) {
     setOriginDialog.show(origin);
   }
   function onOriginSet(e) {
-    $$invalidate(12, origin = e.detail.latLng);
+    $$invalidate(13, origin = e.detail.latLng);
     mapLayerManager.setOrigin(e.detail.latLng);
     originWritable.set(e.detail.latLng);
   }
   function showGeoJsonDialog() {
-    $$invalidate(13, geojsonText = JSON.stringify(editableLayers.toGeoJSON(), null, 2));
-    $$invalidate(9, displayGeoJsonOverlay = true);
+    $$invalidate(14, geojsonText = JSON.stringify(editableLayers.toGeoJSON(), null, 2));
+    $$invalidate(10, displayGeoJsonOverlay = true);
   }
   function updateGeoJSON() {
     try {
       const o = JSON.parse(geojsonText);
       geoJsonWritable.set(o);
-      $$invalidate(9, displayGeoJsonOverlay = false);
+      $$invalidate(10, displayGeoJsonOverlay = false);
     } catch (e) {
       console.log(e);
     }
@@ -28063,8 +28095,27 @@ function instance$1($$self, $$props, $$invalidate) {
         });
       }
     });
-    $$invalidate(14, localCoordsText = JSON.stringify(data, null, 2));
-    $$invalidate(10, displayLocalCoordsOverlay = true);
+    $$invalidate(15, localCoordsText = JSON.stringify(data, null, 2));
+    $$invalidate(11, displayLocalCoordsOverlay = true);
+  }
+  function showMyLocation() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      toasts.add({
+        type: "info",
+        description: `${position.coords.latitude} ${position.coords.longitude} ${position.coords.heading}`,
+        placement: "bottom-center",
+        duration: 0
+      });
+      console.log(position);
+    }, (error) => {
+      toasts.add({
+        type: "error",
+        description: "Could get location.",
+        placement: "bottom-center",
+        duration: 5e3
+      });
+      console.log(error);
+    });
   }
   function div0_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
@@ -28092,6 +28143,11 @@ function instance$1($$self, $$props, $$invalidate) {
     $$invalidate(8, exportToLocalCoordsButton);
   }
   const click_handler_3 = () => showLocalCoordsDialog();
+  function mapbutton4_node_binding(value) {
+    myLocationButton = value;
+    $$invalidate(9, myLocationButton);
+  }
+  const click_handler_4 = () => showMyLocation();
   function coords_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
       coordsComponent = $$value;
@@ -28112,21 +28168,21 @@ function instance$1($$self, $$props, $$invalidate) {
     localCoordsEl = value;
     $$invalidate(5, localCoordsEl);
   }
-  const click_handler_4 = () => updateGeoJSON();
+  const click_handler_5 = () => updateGeoJSON();
   function textfield_value_binding(value) {
     geojsonText = value;
-    $$invalidate(13, geojsonText);
+    $$invalidate(14, geojsonText);
   }
-  const close_handler = () => $$invalidate(9, displayGeoJsonOverlay = false);
+  const close_handler = () => $$invalidate(10, displayGeoJsonOverlay = false);
   function textfield_value_binding_1(value) {
     localCoordsText = value;
-    $$invalidate(14, localCoordsText);
+    $$invalidate(15, localCoordsText);
   }
-  const close_handler_1 = () => $$invalidate(10, displayLocalCoordsOverlay = false);
+  const close_handler_1 = () => $$invalidate(11, displayLocalCoordsOverlay = false);
   function setorigindialog_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
       setOriginDialog = $$value;
-      $$invalidate(11, setOriginDialog);
+      $$invalidate(12, setOriginDialog);
     });
   }
   const set_handler = (e) => onOriginSet(e);
@@ -28140,6 +28196,7 @@ function instance$1($$self, $$props, $$invalidate) {
     localCoordsComponent,
     editGeoJSONButton,
     exportToLocalCoordsButton,
+    myLocationButton,
     displayGeoJsonOverlay,
     displayLocalCoordsOverlay,
     setOriginDialog,
@@ -28152,6 +28209,7 @@ function instance$1($$self, $$props, $$invalidate) {
     showGeoJsonDialog,
     updateGeoJSON,
     showLocalCoordsDialog,
+    showMyLocation,
     div0_binding,
     mapbutton0_node_binding,
     click_handler,
@@ -28161,11 +28219,13 @@ function instance$1($$self, $$props, $$invalidate) {
     click_handler_2,
     mapbutton3_node_binding,
     click_handler_3,
+    mapbutton4_node_binding,
+    click_handler_4,
     coords_binding,
     coords_node_binding,
     localcoords_binding,
     localcoords_node_binding,
-    click_handler_4,
+    click_handler_5,
     textfield_value_binding,
     close_handler,
     textfield_value_binding_1,
@@ -30363,6 +30423,241 @@ var leafletRuler$1 = { exports: {} };
     };
   }, window);
 })(leafletRuler$1);
+L.TrackSymbol = L.Path.extend({
+  initialize: function(latlng, options) {
+    L.setOptions(this, options);
+    if (latlng === void 0) {
+      throw Error("Please give a valid lat/lon-position");
+    }
+    options = options || {};
+    this._id = options.trackId || 0;
+    this._leaflet_id = this._id;
+    this._latlng = L.latLng(latlng);
+    this._size = options.size || 24;
+    this._heading = options.heading;
+    this._course = options.course;
+    this._speed = options.speed;
+    this._leaderTime = options.leaderTime || 60;
+    this._minSilouetteZoom = options.minSilouetteZoom || 14;
+    this.setGPSRefPos(options.gpsRefPos);
+    this._triSymbol = options.defaultSymbol || [0.75, 0, -0.25, 0.3, -0.25, -0.3];
+    this._diaSymbol = options.noHeadingSymbol || [0.3, 0, 0, 0.3, -0.3, 0, 0, -0.3];
+    this._silSymbol = options.silouetteSymbol || [1, 0.5, 0.75, 1, 0, 1, 0, 0, 0.75, 0];
+  },
+  _project: function() {
+  },
+  _update: function() {
+    this._setPath();
+  },
+  _setPath: function() {
+    this._path.setAttribute("d", this.getPathString());
+  },
+  setDefaultSymbol: function(symbol) {
+    this._triSymbol = symbol;
+    return this.redraw();
+  },
+  setNoHeadingSymbol: function(symbol) {
+    this._diaSymbol = symbol;
+    return this.redraw();
+  },
+  setSilouetteSymbol: function(symbol) {
+    this._silSymbol = symbol;
+    return this.redraw();
+  },
+  setLatLng: function(latlng) {
+    var oldLatLng = this._latlng;
+    this._latlng = L.latLng(latlng);
+    this.fire("move", { oldLatLng, latlng: this._latlng });
+    return this.redraw();
+  },
+  setSpeed: function(speed) {
+    this._speed = speed;
+    return this.redraw();
+  },
+  setCourse: function(course) {
+    this._course = course;
+    return this.redraw();
+  },
+  setHeading: function(heading) {
+    this._heading = heading;
+    return this.redraw();
+  },
+  setLeaderTime: function(leaderTime) {
+    this._leaderTime = leaderTime;
+    return this.redraw();
+  },
+  setGPSRefPos: function(gpsRefPos) {
+    if (gpsRefPos === void 0 || gpsRefPos.length < 4) {
+      this._gpsRefPos = void 0;
+    } else if (gpsRefPos[0] === 0 && gpsRefPos[1] === 0 && gpsRefPos[2] === 0 && gpsRefPos[3] === 0) {
+      this._gpsRefPos = void 0;
+    } else {
+      this._gpsRefPos = gpsRefPos;
+    }
+    return this.redraw();
+  },
+  getTrackId: function() {
+    return this._Id;
+  },
+  _getLatSize: function() {
+    return this._getLatSizeOf(this._size);
+  },
+  _getLngSize: function() {
+    return this._getLngSizeOf(this._size);
+  },
+  _getLatSizeOf: function(value) {
+    return value / 40075017 * 360;
+  },
+  _getLngSizeOf: function(value) {
+    return value / 40075017 * 360 / Math.cos(Math.PI / 180 * this._latlng.lat);
+  },
+  getBounds: function() {
+    var lngSize = this._getLngSize() / 2;
+    var latSize = this._getLatSize() / 2;
+    var latlng = this._latlng;
+    return new L.LatLngBounds([latlng.lat - latSize, latlng.lng - lngSize], [latlng.lat + latSize, latlng.lng + lngSize]);
+  },
+  getLatLng: function() {
+    return this._latlng;
+  },
+  _rotate: function(point, angle) {
+    var x = point[0];
+    var y = point[1];
+    var si_z = Math.sin(angle);
+    var co_z = Math.cos(angle);
+    var newX = x * co_z - y * si_z;
+    var newY = x * si_z + y * co_z;
+    return [newX, newY];
+  },
+  _rotateAllPoints: function(points, angle) {
+    var result = [];
+    for (var i = 0; i < points.length; i += 2) {
+      var x = points[i + 0] * this._size;
+      var y = points[i + 1] * this._size;
+      var pt = this._rotate([x, y], angle);
+      result.push(pt[0]);
+      result.push(pt[1]);
+    }
+    return result;
+  },
+  _createLeaderViewPoints: function(angle) {
+    var leaderLength = this._speed * this._leaderTime;
+    var leaderEndLng = this._latlng.lng + this._getLngSizeOf(leaderLength * Math.cos(angle));
+    var leaderEndLat = this._latlng.lat + this._getLatSizeOf(leaderLength * Math.sin(angle));
+    var endPoint = this._map.latLngToLayerPoint(L.latLng([leaderEndLat, leaderEndLng]));
+    var startPoint = this._map.latLngToLayerPoint(this._latlng);
+    return [startPoint.x, startPoint.y, endPoint.x, endPoint.y];
+  },
+  _transformAllPointsToView: function(points) {
+    var result = [];
+    var symbolViewCenter = this._map.latLngToLayerPoint(this._latlng);
+    for (var i = 0; i < points.length; i += 2) {
+      var x = symbolViewCenter.x + points[i + 0];
+      var y = symbolViewCenter.y - points[i + 1];
+      result.push(x);
+      result.push(y);
+    }
+    return result;
+  },
+  _createPathFromPoints: function(points) {
+    var result;
+    for (var i = 0; i < points.length; i += 2) {
+      var x = points[i + 0];
+      var y = points[i + 1];
+      if (result === void 0)
+        result = "M " + x + " " + y + " ";
+      else
+        result += "L " + x + " " + y + " ";
+    }
+    return result + " Z";
+  },
+  _getViewAngleFromModel: function(modelAngle) {
+    return Math.PI / 2 - modelAngle;
+  },
+  _createNoHeadingSymbolPathString: function() {
+    var viewPoints = this._transformAllPointsToView(this._rotateAllPoints(this._diaSymbol, 0));
+    var viewPath = this._createPathFromPoints(viewPoints);
+    if (this._course !== void 0 && this._speed !== void 0) {
+      var courseAngle = this._getViewAngleFromModel(this._course);
+      var leaderPoints = this._createLeaderViewPoints(courseAngle);
+      viewPath += "" + this._createPathFromPoints(leaderPoints);
+    }
+    return viewPath;
+  },
+  _createWithHeadingSymbolPathString: function() {
+    var headingAngle = this._getViewAngleFromModel(this._heading);
+    var viewPoints = this._transformAllPointsToView(this._rotateAllPoints(this._triSymbol, headingAngle));
+    var viewPath = this._createPathFromPoints(viewPoints);
+    if (this._course !== void 0 && this._speed !== void 0) {
+      var courseAngle = this._getViewAngleFromModel(this._course);
+      var leaderPoints = this._createLeaderViewPoints(courseAngle);
+      viewPath += "" + this._createPathFromPoints(leaderPoints);
+    }
+    return viewPath;
+  },
+  _resizeAndMovePoint: function(point, size, offset) {
+    return [
+      point[0] * size[0] + offset[0],
+      point[1] * size[1] + offset[1]
+    ];
+  },
+  _getSizeFromGPSRefPos: function() {
+    return [
+      this._gpsRefPos[0] + this._gpsRefPos[1],
+      this._gpsRefPos[2] + this._gpsRefPos[3]
+    ];
+  },
+  _getOffsetFromGPSRefPos: function() {
+    return [
+      -this._gpsRefPos[1],
+      -this._gpsRefPos[3]
+    ];
+  },
+  _transformSilouetteSymbol: function() {
+    var headingAngle = this._getViewAngleFromModel(this._heading);
+    var result = [];
+    var size = this._getSizeFromGPSRefPos();
+    var offset = this._getOffsetFromGPSRefPos();
+    for (var i = 0; i < this._silSymbol.length; i += 2) {
+      var pt = [
+        this._silSymbol[i + 0],
+        this._silSymbol[i + 1]
+      ];
+      pt = this._resizeAndMovePoint(pt, size, offset);
+      pt = this._rotate(pt, headingAngle);
+      var pointLng = this._latlng.lng + this._getLngSizeOf(pt[0]);
+      var pointLat = this._latlng.lat + this._getLatSizeOf(pt[1]);
+      var viewPoint = this._map.latLngToLayerPoint(L.latLng([pointLat, pointLng]));
+      result.push(viewPoint.x);
+      result.push(viewPoint.y);
+    }
+    return result;
+  },
+  _createSilouetteSymbolPathString: function() {
+    var silouettePoints = this._transformSilouetteSymbol();
+    var viewPath = this._createPathFromPoints(silouettePoints);
+    if (this._course !== void 0 && this._speed !== void 0) {
+      var courseAngle = this._getViewAngleFromModel(this._course);
+      var leaderPoints = this._createLeaderViewPoints(courseAngle);
+      viewPath += "" + this._createPathFromPoints(leaderPoints);
+    }
+    return viewPath;
+  },
+  getPathString: function() {
+    if (this._heading === void 0) {
+      return this._createNoHeadingSymbolPathString();
+    } else {
+      if (this._gpsRefPos === void 0 || this._map.getZoom() <= this._minSilouetteZoom) {
+        return this._createWithHeadingSymbolPathString();
+      } else {
+        return this._createSilouetteSymbolPathString();
+      }
+    }
+  }
+});
+L.trackSymbol = function(latlng, options) {
+  return new L.TrackSymbol(latlng, options);
+};
 var leaflet = "";
 var leafletRuler = "";
 var bare = "";
@@ -30372,4 +30667,4 @@ L$1.Icon.Default.prototype.options.imagePath = "/arl-map-tool/images/";
 new App({
   target: document.body
 });
-//# sourceMappingURL=index.2ed849f9.js.map
+//# sourceMappingURL=index.9a17795d.js.map
