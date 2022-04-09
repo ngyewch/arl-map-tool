@@ -27896,7 +27896,7 @@ function instance$2($$self, $$props, $$invalidate) {
   function onSet() {
     update2();
     if (latLng) {
-      dispatch2("add", { latLng });
+      dispatch2("add", { latLng, label: `${x}, ${y}` });
     }
   }
   function textfield_value_binding(value) {
@@ -28841,7 +28841,10 @@ function instance$1($$self, $$props, $$invalidate) {
     addLocalMarkerDialog.show();
   }
   function onAddLocalMarker(e) {
-    editableLayers.addLayer(L$1.marker(e.detail.latLng));
+    const marker = L$1.marker(e.detail.latLng);
+    marker.bindPopup(e.detail.label);
+    marker.bindTooltip(e.detail.label);
+    marker.addTo(editableLayers);
   }
   function div0_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
@@ -31413,4 +31416,4 @@ L$1.Icon.Default.prototype.options.imagePath = "/arl-map-tool/images/";
 new App({
   target: document.body
 });
-//# sourceMappingURL=index.c6647d5e.js.map
+//# sourceMappingURL=index.1214f977.js.map
